@@ -3,6 +3,7 @@
   "sections": [ 
     {"section":"title"}, 
     {"section":"intro"},
-    {"section":"worked_with"}
+    {"section":"worked_with"},
+    {"section":"finish"}
   ]
 }
