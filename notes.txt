@@ -1,0 +1,63 @@
+* Going to talk about the HTML5 features I have worked with personally
+
+* Web application that acted as a script for an interview. 
+* The application captured answers and comments
+* Wanted to be able to do the interviews at people's apartments where internet might not be available or would be spotty if available.
+
+=============================
+Web Storage - What
+* Domain specific - You don't have to do anything to keep data from one site separate from another site
+* Keys and values are stored as strings, so JSON encoding is very useful
+
+Session Storage
+* Each browser tab and window has its own session storage
+
+Local Storage
+* Data remains after browser is closed
+
+My Uses
+* Cached:
+ * the questions that made up the interview
+ * previous answers
+ * application configuration data
+ 
+Multi-user computer
+* LocalStorage doesn't know anything about users logging into an application
+* Values are stored with whatever keys they are given
+
+Schema changes
+* Multiple choice answers might have changed since the interview was done offline
+ - break single choice into two, or combine two into one
+* Field added, removed, or renamed in a core data structure
+  
+  Migrations
+   * Used version numbers to know when changes needed to be applied to data that 
+     had been stored in local storage
+     
+Private information
+* Talking about sensitive information that shouldn't be available in plain text
+* Used a javascript encryption library (Block TEA - Tiny Encryption Algorithm)
+
+Synchronization
+* Interview answers that were captured offline needed to be saved on the server 
+  after coming back online
+
+===============================
+
+Application Cache - What
+* If a file is in the application cache the browser does not go out to the internet to look for a new version
+
+Cache Manifest
+* The cache manifest is where the browser finds out what files to store in its application
+  cache
+  
+Sample Cache Manifest
+* Browser only updates when the manifest changes. Use a timestamp, version number to indicate a change
+* I used an MD5 digest of the files included in the cache - if any of those files changed the digest would
+  change causing a browser to download the new manifest.
+  
+Simulating Offline
+* Firefox - easy to disconnect and reconnect
+
+Annoying Double Refresh
+  * Pain to refresh, wait for new files to be stored, then refresh again.

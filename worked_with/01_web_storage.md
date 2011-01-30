@@ -1,5 +1,5 @@
 !SLIDE subsection
-# Web Storage #
+# HTML5 Web Storage #
 
 !SLIDE bullets incremental
 # What #
@@ -22,13 +22,13 @@
 # Session Storage
 * Single browser tab
 * Lost when tab closes
-* <code>sessionStorage</code>
+* <code>window.sessionStorage</code>
 
 !SLIDE bullets incremental
 # Local Storage
 * Domain specific
 * Long term storage
-* <code>localStorage</code>
+* <code>window.localStorage</code>
 
 !SLIDE javascript
 # Write a value
@@ -36,6 +36,8 @@
     localStorage['color'] = "green";
     
     localStorage.user = JSON.stringify(obj);
+    
+    localStorage.setItem('day', 'Monday');
 
 !SLIDE javascript
 # Read Values
@@ -43,6 +45,8 @@
     var color = localStorage['color'];
     
     var user = JSON.parse(localStorage.user);
+    
+    var day = localStorage.getItem('day');
 
 !SLIDE javascript
 # Other
@@ -58,17 +62,10 @@
 !SLIDE bullets incremental
 # My Uses
 * Cache application data (JSON)
-
-.notes No need to hit the server once the data was stored in the browser
-
 * Save user changes while offline
     
 !SLIDE subscection
 # Issues
-
-!SLIDE bullets incremental
-# Multi-user computer
-* Clear data on logout/login
 
 !SLIDE bullets incremental
 # "Schema" changes
@@ -80,8 +77,7 @@
 
 !SLIDE bullets incremental
 # Synchronization
-* Stayed *offline* until the user initiated a save operation
-* Most recent data wins
+* Last in wins
 
 
 

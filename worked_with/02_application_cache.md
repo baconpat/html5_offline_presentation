@@ -1,5 +1,5 @@
 !SLIDE subsection
-# Application Cache #
+# HTML5 Application Cache #
 
 !SLIDE bullets incremental
 # What #
@@ -13,22 +13,8 @@
 * Firefox
 * Safari
 * Chrome
-* iPhone
+* iPhone/iPad
 * Android
-
-!SLIDE bullets incremental
-# Cache Manifest
-* Lists all URLs to cache
-* Content-Type must be <code>text/cache-manifest</code>
-* Files listed are **only** accessed from the cache
-* Can be generated programmatically
-
-!SLIDE html
-# Specify the manifest
-    @@@ html
-    <!DOCTYPE html>
-    <html manifest='/cache.manifest'>
-
 
 !SLIDE code
 
@@ -48,6 +34,12 @@
     
     FALLBACK:
     /offline.html
+
+!SLIDE html
+# Specify the manifest
+    @@@ html
+    <!DOCTYPE html>
+    <html manifest='/cache.manifest'>
 
 !SLIDE
 # First page load
@@ -97,12 +89,7 @@
       appCache.addEventListener('error', handleCacheError);
       
     }
-    
-!SLIDE bullets incremental
-# My Uses
-* Allow users to enter data from locations with no network
-* Users not affected by intermittent WiFi connection
-    
+
 !SLIDE
 # Issues
 
@@ -127,7 +114,7 @@
 # Manifest errors are bad
 * Silent failure
 * Had to restore an iPad after mobile Safari cached a bad manifest
-* Firefox - easiest to blow away offline cache
+* Firefox - easiest to delete the offline cache
 
 !SLIDE bullets incremental
 # Expires headers
@@ -141,6 +128,13 @@
 !SLIDE bullets incremental
 # Not available in IE8
 * Used Google Gears
+* Google Gears requires a separate download/installation
+
+!SLIDE bullets incremental
+# Automated acceptance testing
+* HtmlUnit does not yet support ApplicationCache
+* Zombie.js might be a possibility
+* Selenium??
 
 !SLIDE bullets
 # Example site
