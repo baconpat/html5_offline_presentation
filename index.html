@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>HTML Offline Capabilities</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content center" ref="title/01_title">
+<h1>HTML5 Offline</h1>
+
+<h2>Patrick Bacon</h2>
+
+<p><img src="./file/title/ao_logo.png" alt="Atomic Oject"/>
+<a href="http://atomicobject.com">http://atomicobject.com</a></p></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/01_intro/1">
+<h1>Things I've Worked With</h1>
+
+<ul>
+<li>Web Storage</li>
+<li>Application Cache</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/01_intro/2">
+<h1>Ported an existing application to work offline</h1></div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="worked_with/01_web_storage/1">
+<h1>HTML5 Web Storage</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/01_web_storage/2">
+<h1>What</h1>
+
+<ul>
+<li>Store key/value pairs within the browser</li>
+<li>Domain specific</li>
+<li>Great for JSON data</li>
+<li>5 megabytes</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="worked_with/01_web_storage/3">
+<h1>Support</h1>
+
+<ul>
+<li>IE 8.0+</li>
+<li>Firefox 3.5+</li>
+<li>Safari 4.0+</li>
+<li>Chrome 4.0+</li>
+<li>Opera 10.5+</li>
+<li>iPhone 2.0+</li>
+<li>Android 2.0+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/01_web_storage/4">
+<h1>Session Storage</h1>
+
+<ul>
+<li>Single browser tab</li>
+<li>Lost when tab closes</li>
+<li><code>window.sessionStorage</code></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/01_web_storage/5">
+<h1>Local Storage</h1>
+
+<ul>
+<li>Domain specific</li>
+<li>Long term storage</li>
+<li><code>window.localStorage</code></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content javascript" ref="worked_with/01_web_storage/6">
+<h1>Write a value</h1>
+
+<pre class="sh_javascript"><code>localStorage['color'] = "green";
+
+localStorage.user = JSON.stringify(obj);
+
+localStorage.setItem('day', 'Monday');</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content javascript" ref="worked_with/01_web_storage/7">
+<h1>Read Values</h1>
+
+<pre class="sh_javascript"><code>var color = localStorage['color'];
+
+var user = JSON.parse(localStorage.user);
+
+var day = localStorage.getItem('day');</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content javascript" ref="worked_with/01_web_storage/8">
+<h1>Other</h1>
+
+<pre class="sh_javascript"><code>localStorage.clear()
+
+localStorage.removeItem(key)
+
+localStorage.length
+
+localStorage.key(i)</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/01_web_storage/9">
+<h1>My Uses</h1>
+
+<ul>
+<li>Cache application data (JSON)</li>
+<li>Save user changes while offline</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subscection" ref="worked_with/01_web_storage/10">
+<h1>Issues</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/01_web_storage/11">
+<h1>"Schema" changes</h1>
+
+<ul>
+<li>Migrations</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/01_web_storage/12">
+<h1>Private information</h1>
+
+<ul>
+<li>Client side encryption</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/01_web_storage/13">
+<h1>Synchronization</h1>
+
+<ul>
+<li>Last in wins</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="worked_with/02_application_cache/1">
+<h1>HTML5 Application Cache</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/2">
+<h1>What</h1>
+
+<ul>
+<li>Stores HTML, CSS, JavaScript, images, etc.</li>
+<li>Browser looks here first for resources</li>
+<li>Contents specified in a cache manifest file</li>
+<li>Updated whenever the cache manifest changes</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content smbullets" ref="worked_with/02_application_cache/3">
+<h1>Support</h1>
+
+<ul>
+<li>Firefox</li>
+<li>Safari</li>
+<li>Chrome</li>
+<li>iPhone/iPad</li>
+<li>Android</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="worked_with/02_application_cache/4">
+<pre><code>CACHE MANIFEST
+# Updated: 2011-01-31 11:10:31 -0500
+
+NETWORK:
+*
+
+CACHE:
+http://ajax.googleapis.com/jquery.js
+/home
+/javascripts/application.js
+/stylesheets/application.css
+/images/logo.png
+/data.json
+
+FALLBACK:
+/offline.html
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content html" ref="worked_with/02_application_cache/5">
+<h1>Specify the manifest</h1>
+
+<pre class="sh_html"><code>&lt;!DOCTYPE html&gt;
+&lt;html manifest='/cache.manifest'&gt;</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/6">
+<h1>First page load</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/7">
+<h1>Just like a normal web page</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/8">
+<h1>In the background downloading files</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/9">
+<h1>Second page load</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/10">
+<h1>Displayed from cache <em>immediately</em></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/11">
+<h1>Has the cache manifest changed?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/12">
+<h1>Download new files</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/13">
+<h1>Refresh or <code>swapCache()</code></h1></div>
+</div><div class="slide" data-transition="none"><div class="content javascript smaller" ref="worked_with/02_application_cache/14">
+<h1>Status and Events</h1>
+
+<pre class="sh_javascript"><code>var appCache = window.applicationCache;
+
+if (appCache.status === appCache.UPDATEREADY ||
+    appCache.status === appCache.DOWNLOADING) {
+
+  handleDownloading();
+
+}
+
+if (appCache.status === appCache.UPDATEREADY) {
+
+  handleOfflineReady();
+
+} else {
+
+  appCache.addEventListener('cached', handleOfflineReady);
+  appCache.addEventListener('updateready', handleOfflineReady);
+  appCache.addEventListener('downloading', handleDownloading);
+  appCache.addEventListener('error', handleCacheError);
+
+}</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="worked_with/02_application_cache/15">
+<h1>Issues</h1></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/16">
+<h1>Simulating Offline</h1>
+
+<ul>
+<li>Turn off WiFi on laptop</li>
+<li>Disable network in a Virtual Machine</li>
+<li>"Offline" mode in Firefox</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/17">
+<h1>Annoying Double Refresh</h1>
+
+<ul>
+<li>Firefox - ignore request to store data</li>
+<li><img src="./file/worked_with/firefox_offline.png" alt="Firefox"/></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/18">
+<h1>What's going on with the cache?</h1>
+
+<ul>
+<li>Google Chrome - Developer Tools</li>
+<li>Displays status updates</li>
+<li>Easily browse Local Storage and Application Cache</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/19">
+<h1>Manifest errors are bad</h1>
+
+<ul>
+<li>Silent failure</li>
+<li>Had to restore an iPad after mobile Safari cached a bad manifest</li>
+<li>Firefox - easiest to delete the offline cache</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/20">
+<h1>Expires headers</h1>
+
+<ul>
+<li>Used Rails' cache-busting timestamp in the manifest</li>
+<li><code>/javascripts/application.js?1291049950</code></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/21">
+<h1>Cache not updated until ALL files are downloaded</h1>
+
+<ul>
+<li>Displayed a modal dialog while downloading new version</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/22">
+<h1>Not available in IE8</h1>
+
+<ul>
+<li>Used Google Gears</li>
+<li>Google Gears requires a separate download/installation</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="worked_with/02_application_cache/23">
+<h1>Automated acceptance testing</h1>
+
+<ul>
+<li>HtmlUnit does not yet support ApplicationCache</li>
+<li>Zombie.js might be a possibility</li>
+<li>Selenium??</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="worked_with/02_application_cache/24">
+<h1>Example site</h1>
+
+<ul>
+<li><a href="http://rubyconf2010.busyconf.com">http://rubyconf2010.busyconf.com</a></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="finish/01_final/1">
+<h1>Resources</h1>
+
+<ul>
+<li>Dive Into HTML5 - <a href="http://diveintohtml5.org">http://diveintohtml5.org</a></li>
+<li>Sample project - <a href="https://github.com/baconpat/html5_offline">https://github.com/baconpat/html5_offline</a></li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="finish/01_final/2">
+<h1>Questions?</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="finish/01_final/3">
+<h1>Thanks</h1></div>
+</div>
+</div>
+
+</body>
+</html>
